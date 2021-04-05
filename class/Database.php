@@ -13,27 +13,24 @@
  * */
 class Database {
 
-//  private $host = 'localhost';
-//  private $name = 'easyyedf_easytutor';
-//  private $user = 'easyyedf_easytutor';
-//  private $password = '.%L}=$eeL[OJ';
-//  private $DB_CON = '';
-
+//    private $host = 'localhost';
+//    private $name = 'suhatdux_auroralanka';
+//    private $user = 'suhatdux_auroralanka';
+//   private $password = 'iE,@lxE0HGWr';
 
 
     private $host = 'localhost';
-    private $name = 'pradipika';
+    private $name = 'shopwise';
     private $user = 'root';
     private $password = '';
-    private $DB_CON = '';
+    public $DB_CON = NULL;
 
-    function __construct() {
+    public function __construct() {
 
         $this->DB_CON = mysqli_connect($this->host, $this->user, $this->password, $this->name);
     }
 
-    public
-            function readQuery($query) {
+    public function readQuery($query) {
         $result = mysqli_query($this->DB_CON, $query) or die(mysqli_error());
 
         return $result;
