@@ -3,19 +3,18 @@ jQuery(document).ready(function () {
     $("#create").click(function (event) {
         event.preventDefault();
 
-        if (!$('#district').val() || $('#district').val().length === 0) {
+        if (!$('#number').val() || $('#number').val().length === 0) {
             swal({
                 title: "Error!",
-                text: "Please select center name..!",
+                text: "Please select module number..!",
                 type: 'error',
                 timer: 2000,
                 showConfirmButton: false
             });
-
-        } else if (!$('#center').val() || $('#center').val().length === 0) {
+        } else if (!$('#name').val() || $('#name').val().length === 0) {
             swal({
                 title: "Error!",
-                text: "Please enter center name..!",
+                text: "Please enter course name..!",
                 type: 'error',
                 timer: 2000,
                 showConfirmButton: false
@@ -23,22 +22,20 @@ jQuery(document).ready(function () {
 
         } else {
 
-
             //grab all form data  
             var formData = new FormData($("form#form-data")[0]);
 
             $.ajax({
-                url: "ajax/php/center.php",
+                url: "ajax/php/module.php",
                 type: 'POST',
                 data: formData,
                 async: false,
                 cache: false,
                 contentType: false,
                 processData: false,
+                dataType: "JSON",
                 success: function (result) {
-//remove preloarder
-
-
+                    //remove preloarder 
                     if (result.status === 'success') {
 
                         swal({
@@ -74,19 +71,19 @@ jQuery(document).ready(function () {
     $("#update").click(function (event) {
         event.preventDefault();
 
-        if (!$('#district').val() || $('#district').val().length === 0) {
+        if (!$('#number').val() || $('#number').val().length === 0) {
             swal({
                 title: "Error!",
-                text: "Please select center name..!",
+                text: "Please select module number..!",
                 type: 'error',
                 timer: 2000,
                 showConfirmButton: false
             });
-
-        } else if (!$('#center').val() || $('#center').val().length === 0) {
+            
+        } else if (!$('#name').val() || $('#name').val().length === 0) {
             swal({
                 title: "Error!",
-                text: "Please enter center name..!",
+                text: "Please select module name..!",
                 type: 'error',
                 timer: 2000,
                 showConfirmButton: false
@@ -98,13 +95,14 @@ jQuery(document).ready(function () {
             var formData = new FormData($("form#form-data")[0]);
 
             $.ajax({
-                url: "ajax/php/center.php",
+                url: "ajax/php/module.php",
                 type: 'POST',
                 data: formData,
                 async: false,
                 cache: false,
                 contentType: false,
                 processData: false,
+                dataType: "JSON",
                 success: function (result) {
 
                     if (result.status === 'success') {
@@ -142,7 +140,7 @@ jQuery(document).ready(function () {
     $('#district').change(function () {
 
         var disID = $(this).val();
-          
+
         $.ajax({
             url: "ajax/php/center-by-district.php",
             type: "POST",

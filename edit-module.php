@@ -1,5 +1,9 @@
 <?php
 include './class/include.php';
+$id = '';
+$id = $_GET['id'];
+ 
+$MODULE = new Module($id);
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +12,7 @@ include './class/include.php';
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui" />
-        <title>Add Centers </title>
+        <title>Edit Module </title>
         <meta content="Admin Dashboard" name="description" />
         <meta content="Mannatthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -60,44 +64,35 @@ include './class/include.php';
                                                 <code class="highlighter-rouge">type</code>.
                                             </p>
                                             <form id="form-data">
+
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Please Select District </label>
-                                                    <div class="col-sm-10">
-                                                        <select class="form-control" id="district" name="district">
-                                                            <option> -- Select District -- </option> 
-                                                            <?php
-                                                            $DISTRICT = new District(NULL);
-                                                            foreach ($DISTRICT->all() as $district) {
-                                                                ?>
-                                                                <option value="<?php echo $district['id'] ?>"><?php echo $district['name'] ?></option> 
-                                                            <?php } ?>
-                                                        </select>
-                                                    </div>
+                                                    <label for="example-search-input" class="col-sm-2 col-form-label">Module Number</label>
+                                                    <div class="col-sm-10"><input class="form-control" type="text" value="<?php echo $MODULE->module_number ?>"  id="number" name="number" autocomplete="off"/></div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="example-search-input" class="col-sm-2 col-form-label">Enter Center</label>
-                                                    <div class="col-sm-10"><input class="form-control" type="text"   id="center" name="name" autocomplete="off"/></div>
+                                                    <label for="example-search-input" class="col-sm-2 col-form-label">Module Name</label>
+                                                    <div class="col-sm-10"><input class="form-control" type="text" value="<?php echo $MODULE->name ?>"  id="name" name="name" autocomplete="off"/></div>
                                                 </div>
+
                                                 <div class="row">
                                                     <div class="col-md-10"></div>
                                                     <div class="col-md-2"> 
                                                         <div class="form-group ">
-                                                            <button type="button" class="btn btn-success ml-2 float-right" id="create">Create</button>
-                                                            <input type="hidden" name="create">
+                                                            <button type="button" class="btn btn-success ml-2 float-right" id="update">Update</button>
+                                                            <input type="hidden" name="update">
+                                                            <input type="hidden" name="id" value="<?php echo $id ?>"> 
                                                         </div>   
                                                     </div>
                                                 </div>
+
                                             </form>
 
                                         </div>
                                     </div>
-                                </div>
-                                <!-- end col -->
+                                </div>                                
                             </div>
-                            
-                            
-                            <!-- end row -->
 
+                             
                         </div>
                         <!-- container -->
                     </div>
@@ -122,7 +117,7 @@ include './class/include.php';
         <script src="assets/js/jquery.scrollTo.min.js"></script>
         <script src="assets/js/sweetalert.min.js" type="text/javascript"></script>
         <script src="assets/js/app.js"></script>
-        <script src="ajax/js/center.js" type="text/javascript"></script>
+        <script src="ajax/js/module.js" type="text/javascript"></script>
     </body>
 
 </html>

@@ -2,7 +2,7 @@
 include './class/include.php';
 $id = '';
 $id = $_GET['id'];
-$CENTER = new Center($id);
+$COURSES = new Courses($id);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +45,7 @@ $CENTER = new Center($id);
                                             <ol class="breadcrumb hide-phone p-0 m-0">
                                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                                 <li class="breadcrumb-item"><a href="#">Center</a></li>
-                                                <li class="breadcrumb-item active">Edit Center - " <?php echo $CENTER->name ?> "</li>
+                                                <li class="breadcrumb-item active">Edit Center - " <?php echo $COURSES->name ?> "</li>
                                             </ol>
                                         </div> 
                                     </div>
@@ -64,29 +64,10 @@ $CENTER = new Center($id);
 
 
                                             <form id="form-data">
+                                                
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Please Select District </label>
-                                                    <div class="col-sm-10">
-                                                        <select class="form-control" id="district" name="district">
-                                                            <option> -- Select District -- </option> 
-                                                            <?php
-                                                            $DISTRICT = new District(NULL);
-                                                            foreach ($DISTRICT->all() as $district) {
-                                                                if ($CENTER->district == $district['id']) {
-                                                                    ?>
-                                                                    <option value="<?php echo $district['id'] ?>" selected=""><?php echo $district['name'] ?></option> 
-                                                                <?php } else { ?>
-                                                                    <option value="<?php echo $district['id'] ?>" ><?php echo $district['name'] ?></option> 
-                                                                    <?php
-                                                                }
-                                                            }
-                                                            ?>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label for="example-search-input" class="col-sm-2 col-form-label">Enter Center</label>
-                                                    <div class="col-sm-10"><input class="form-control" type="text"   id="center" name="name" autocomplete="off" value="<?php echo $CENTER->name ?>"/></div>
+                                                    <label for="example-search-input" class="col-sm-2 col-form-label">Enter Course Name</label>
+                                                    <div class="col-sm-10"><input class="form-control" type="text"   id="name" name="name" autocomplete="off" value="<?php echo $COURSES->name ?>"/></div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-10"></div>
@@ -130,7 +111,7 @@ $CENTER = new Center($id);
         <script src="assets/js/jquery.nicescroll.js"></script>
         <script src="assets/js/jquery.scrollTo.min.js"></script>
         <script src="assets/js/sweetalert.min.js" type="text/javascript"></script>
-        <script src="ajax/js/center.js" type="text/javascript"></script>
+        <script src="ajax/js/course.js" type="text/javascript"></script>
         <script src="assets/js/app.js"></script>
     </body>
 

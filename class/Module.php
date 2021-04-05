@@ -11,24 +11,28 @@
  *
  * @author chalana
  */
-class Center {
+class Module {
 
     public $id;
-    public $district;
+    public $course;
+    public $semester;
+    public $module_number;
     public $name;
     public $sort;
 
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT * FROM `centers` WHERE `id`=" . $id;
+            $query = "SELECT * FROM `modules` WHERE `id`=" . $id;
 
             $db = new Database();
 
             $result = mysqli_fetch_array($db->readQuery($query));
 
             $this->id = $result['id'];
-            $this->district = $result['district'];
+            $this->course = $result['course'];
+            $this->semester = $result['semester'];
+            $this->module_number = $result['module_number'];
             $this->name = $result['name'];
             $this->sort = $result['sort'];
 
@@ -38,8 +42,10 @@ class Center {
 
     public function create() {
 
-        $query = "INSERT INTO `centers` (`district`,`name`,`sort`) VALUES  ('"
-                . $this->district . "', '"
+        $query = "INSERT INTO `modules` (`course`,`semester`,`module_number`,`name`,`sort`) VALUES  ('"
+                . $this->course . "', '"
+                . $this->semester . "', '"
+                . $this->module_number . "', '"
                 . $this->name . "', '"
                 . $this->sort . "')";
 
@@ -57,7 +63,7 @@ class Center {
 
     public function all() {
 
-        $query = "SELECT * FROM `centers` ORDER BY sort ASC";
+        $query = "SELECT * FROM `modules` ORDER BY sort ASC";
         $db = new Database();
         $result = $db->readQuery($query);
         $array_res = array();
@@ -71,8 +77,8 @@ class Center {
 
     public function update() {
 
-        $query = "UPDATE  `centers` SET "
-                . "`district` ='" . $this->district . "', "
+        $query = "UPDATE  `modules` SET " 
+                . "`module_number` ='" . $this->module_number . "', "
                 . "`name` ='" . $this->name . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 
@@ -92,16 +98,16 @@ class Center {
         unlink(Helper::getSitePath() . "upload/brand/" . $this->name);
 
 
-        $query = 'DELETE FROM `centers` WHERE id="' . $this->id . '"';
+        $query = 'DELETE FROM `modules` WHERE id="' . $this->id . '"';
 
         $db = new Database();
 
         return $db->readQuery($query);
     }
 
-    public function getCentersByDistrict($centers) {
+    public function getModulesByCourse($id,$sem) {
 
-        $query = 'SELECT * FROM `centers` WHERE district="' . $centers . '"   ORDER BY sort ASC';
+        $query = 'SELECT * FROM `modules` WHERE course="' . $id . '" AND semester="' . $sem . '"  ORDER BY sort ASC';
        
         
         $db = new Database();
@@ -117,7 +123,7 @@ class Center {
 
     public function arrange($key, $img) {
 
-        $query = "UPDATE `centers` SET `sort` = '" . $key . "'  WHERE id = '" . $img . "'";
+        $query = "UPDATE `modules` SET `sort` = '" . $key . "'  WHERE id = '" . $img . "'";
         $db = new Database();
         $result = $db->readQuery($query);
         return $result;
