@@ -1,18 +1,20 @@
 <?php
 
 include '../../class/include.php';
-header('Content-Type: application/json; charset=UTF8');
+
 
 //Create
 if (isset($_POST['create'])) {
-    $CENTER = new Center(NULL);
+    $MODULE = new Module(NULL);
 
-    $CENTER->district = $_POST['district'];
-    $CENTER->name = $_POST['name'];
+    $MODULE->course = $_POST['id'];
+    $MODULE->semester = $_POST['sem'];
+    $MODULE->module_number = $_POST['number'];
+    $MODULE->name = $_POST['name'];
 
-    $CENTER->create();
+    $MODULE->create();
 
-    if ($CENTER) {
+    if ($MODULE) {
         $result = [
             "status" => 'success'
         ];
@@ -30,14 +32,14 @@ if (isset($_POST['create'])) {
 //Update
 if (isset($_POST['update'])) {
 
-    $CENTER = new Center($_POST['id']);
+    $MODULE = new Module($_POST['id']);
 
-    $CENTER->name = $_POST['name'];
-    $CENTER->district = $_POST['district'];
+    $MODULE->name = $_POST['name'];
+    $MODULE->module_number = $_POST['number'];
 
-    $CENTER->update();
+    $MODULE->update();
 
-    if ($CENTER) {
+    if ($MODULE) {
         $result = [
             "status" => 'success'
         ];

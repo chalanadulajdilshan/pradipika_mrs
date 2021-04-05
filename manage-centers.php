@@ -83,7 +83,8 @@ include './class/include.php';
                                                             <td><?php echo $DISTRICT->name ?></td>
                                                             <td><?php echo $centers['name'] ?></td>
                                                             <td> 
-                                                                <a  href="edit-centers.php?id=<?php echo $centers['id'] ?>" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 5px;"><span class="ti-pencil"></span></a>
+                                                                <a  href="edit-centers.php?id=<?php echo $centers['id'] ?>" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 5px;">EDIT</a> | 
+                                                                <a  href="add-course.php?id=<?php echo $centers['id'] ?>" class="tabledit-edit-button btn btn-sm btn-success" style="float: none; margin: 5px;">ADD COURSES</a>
                                                             </td>
 
                                                         </tr>
