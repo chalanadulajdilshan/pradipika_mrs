@@ -1,19 +1,23 @@
+<?php
+include './class/include.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui" />
-        <title>Annex - Responsive Bootstrap 4 Admin Dashboard</title>
+        <title>Add Course</title>
         <meta content="Admin Dashboard" name="description" />
         <meta content="Mannatthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link rel="shortcut icon" href="assets/images/favicon.ico" />
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/preloader.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
     </head>
-    <body class="fixed-left">
+    <body class="fixed-left someBlock" >
         <!-- Loader -->
         <div id="preloader">
             <div id="status"><div class="spinner"></div></div>
@@ -36,9 +40,9 @@
                                     <div class="page-title-box">
                                         <div class="btn-group float-right">
                                             <ol class="breadcrumb hide-phone p-0 m-0">
-                                                <li class="breadcrumb-item"><a href="#">Annex</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                                                <li class="breadcrumb-item active">Form Elements</li>
+                                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Courses</a></li>
+                                                <li class="breadcrumb-item active">Add Courses</li>
                                             </ol>
                                         </div> 
                                     </div>
@@ -49,14 +53,14 @@
                                 <div class="col-12">
                                     <div class="card m-b-30">
                                         <div class="card-body">
-                                            <h4 class="mt-0 header-title">Add Student Details.</h4>
+                                            <h4 class="mt-0 header-title">Add Course Details.</h4>
                                             <p class="text-muted m-b-30 font-14">
                                                 Here are examples of <code class="highlighter-rouge">.form-control</code> applied to each textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code>
                                                 <code class="highlighter-rouge">type</code>.
                                             </p>
                                             <div class="form-group row">
-                                                <label for="example-text-input" class="col-sm-2 col-form-label">Text</label>
-                                                <div class="col-sm-10"><input class="form-control" type="text" value="Artisanal kale" id="example-text-input" /></div>
+                                                <label for="example-text-input" class="col-sm-2 col-form-label">Course Name</label>
+                                                <div class="col-sm-10"><input class="form-control" type="text"  id="example-text-input" /></div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="example-search-input" class="col-sm-2 col-form-label">Search</label>
@@ -90,40 +94,26 @@
                                                 <label for="example-date-input" class="col-sm-2 col-form-label">Date</label>
                                                 <div class="col-sm-10"><input class="form-control" type="date" value="2011-08-19" id="example-date-input" /></div>
                                             </div>
+
                                             <div class="form-group row">
-                                                <label for="example-month-input" class="col-sm-2 col-form-label">Month</label>
-                                                <div class="col-sm-10"><input class="form-control" type="month" value="2011-08" id="example-month-input" /></div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-week-input" class="col-sm-2 col-form-label">Week</label>
-                                                <div class="col-sm-10"><input class="form-control" type="week" value="2011-W33" id="example-week-input" /></div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-time-input" class="col-sm-2 col-form-label">Time</label>
-                                                <div class="col-sm-10"><input class="form-control" type="time" value="13:45:00" id="example-time-input" /></div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-color-input" class="col-sm-2 col-form-label">Color</label>
-                                                <div class="col-sm-10"><input class="form-control" type="color" value="#67a8e4" id="example-color-input" /></div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Select</label>
+                                                <label class="col-sm-2 col-form-label">Please Select District </label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control">
-                                                        <option>Select</option>
-                                                        <option>Large select</option>
-                                                        <option>Small select</option>
+                                                    <select class="form-control" id="district">
+                                                        <option> -- Select District -- </option> 
+                                                        <?php
+                                                        $DISTRICT = new District(NULL);
+                                                        foreach ($DISTRICT->all() as $district) {
+                                                            ?>
+                                                            <option value="<?php echo $district['id'] ?>"><?php echo $district['name'] ?></option> 
+                                                        <?php } ?>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Custom Select</label>
+                                                <label class="col-sm-2 col-form-label">Please Select City </label>
                                                 <div class="col-sm-10">
-                                                    <select class="custom-select">
-                                                        <option selected="selected">Open this select menu</option>
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
+                                                    <select class="custom-select" id="city-bar">
+                                                        <option selected="selected">Please Select District First </option> 
                                                     </select>
                                                 </div>
                                             </div>
@@ -165,7 +155,7 @@
                                 <!-- end col -->
                             </div>
                             <!-- end row -->
-                            
+
                         </div>
                         <!-- container -->
                     </div>
@@ -190,6 +180,9 @@
         <script src="assets/js/jquery.scrollTo.min.js"></script>
         <!-- App js -->
         <script src="assets/js/app.js"></script>
+        <script src="assets/js/jquery.preloader.min.js" type="text/javascript"></script>
+        <script src="ajax/js/city.js" type="text/javascript"></script>
+
     </body>
-    <!-- Mirrored from mannatthemes.com/annex/vertical/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 29 Mar 2021 03:59:09 GMT -->
+
 </html>
