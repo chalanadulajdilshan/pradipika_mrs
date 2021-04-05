@@ -38,19 +38,10 @@ include_once(dirname(__FILE__) . '/class/include.php');
                             </div>
                             <div class="form-group row">
                                 <div class="col-12 message" id="message">
-                                  
                                 </div>
                             </div>
                             <div class="form-group text-center row m-t-20">
                                 <div class="col-12"><button class="btn btn-danger btn-block waves-effect waves-light" id="login" type="submit">Log In</button></div>
-                            </div>
-                            <div class="form-group m-t-10 mb-0 row">
-                                <div class="col-sm-7 m-t-20">
-                                    <a href="pages-recoverpw.html" class="text-muted"><i class="mdi mdi-lock"></i> <small>Forgot your password ?</small></a>
-                                </div>
-                                <div class="col-sm-5 m-t-20">
-                                    <a href="pages-register.html" class="text-muted"><i class="mdi mdi-account-circle"></i> <small>Create an account ?</small></a>
-                                </div>
                             </div>
                         </form>
                     </div>
