@@ -75,7 +75,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown">
                 
-                    <a class="dropdown-item" href="#"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a>
+                    <a class="dropdown-item" href="logout.php"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a>
                 </div>
             </li>
         </ul>

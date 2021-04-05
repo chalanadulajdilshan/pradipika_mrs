@@ -20,19 +20,17 @@ class Database {
 
 
     private $host = 'localhost';
-    private $name = 'shopwise';
+    private $name = 'pradipika';
     private $user = 'root';
     private $password = '';
-    public $DB_CON = NULL;
+    public $DB_CON = '';
 
     public function __construct() {
-
         $this->DB_CON = mysqli_connect($this->host, $this->user, $this->password, $this->name);
     }
 
     public function readQuery($query) {
-        $result = mysqli_query($this->DB_CON, $query) or die(mysqli_error());
-
+        $result = mysqli_query($this->DB_CON, $query) or die('Error: ' . mysqli_error($this->DB_CON));
         return $result;
     }
 
