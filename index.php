@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+include_once(dirname(__FILE__) . '/class/include.php');
 include './auth.php';
 ?>
 <html>
