@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<?php 
-
-
+<?php
+include_once(dirname(__FILE__) . '/class/include.php');
+include './auth.php';
 ?>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui" />
-        <title>Annex - Responsive Bootstrap 4 Admin Dashboard</title>
+        <title>VTA - Add Student</title>
         <meta content="Admin Dashboard" name="description" />
         <meta content="Mannatthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -40,9 +40,9 @@
                                     <div class="page-title-box">
                                         <div class="btn-group float-right">
                                             <ol class="breadcrumb hide-phone p-0 m-0">
-                                                <li class="breadcrumb-item"><a href="#">Annex</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                                                <li class="breadcrumb-item active">Form Elements</li>
+                                                <li class="breadcrumb-item"><a href="#">VTA</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Student</a></li>
+                                                <li class="breadcrumb-item active">Add Student</li>
                                             </ol>
                                         </div> 
                                     </div>
@@ -53,134 +53,342 @@
                                 <div class="col-12">
                                     <div class="card m-b-30">
                                         <div class="card-body">
-                                            <h4 class="mt-0 header-title">Add Student Details.</h4>
-                                            <p class="text-muted m-b-30 font-14">
+                                            <h4 class="mt-0 header-title">Add new Student.</h4>
+                                            <hr>
+<!--                                            <p class="text-muted m-b-30 font-14">
                                                 Here are examples of <code class="highlighter-rouge">.form-control</code> applied to each textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code>
                                                 <code class="highlighter-rouge">type</code>.
-                                            </p>
+                                            </p>-->
+
+                                            <div class="form-group row">
+                                                <label for="student_name" class="col-sm-2 col-form-label">Student Name</label>
+                                                <div class="col-md-8">
+                                                    <input class="form-control" type="text" id="student_name"/>
+                                                </div>
+                                            </div>
                                             <div class="form-group row">
                                                 <label for="student_id" class="col-sm-2 col-form-label">Student Id</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-md-4">
                                                     <input class="form-control" type="text" id="student_id"/>
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
-                                                <label for="example-search-input" class="col-sm-2 col-form-label">Student Name</label>
-                                                <div class="col-sm-10"><input class="form-control" type="text" id="example-search-input" /></div>
+                                                <label for="mis_no" class="col-sm-2 col-form-label">MIS Number</label>
+                                                <div class="col-md-4">
+                                                    <input class="form-control" type="text" id="mis_no"/>
+                                                </div>
                                             </div>
+
+
+
                                             <div class="form-group row">
-                                                <label for="example-email-input" class="col-sm-2 col-form-label">Course Name</label>
-                                                <div class="col-sm-10">
-                                                    <select id="example-email-input" >
-                                                        <option> -- Select course -- </option>
-                                                        <option> NVQ Level 5 </option>
+                                                <label for="example-email-input" class="col-sm-2 col-form-label">Batch</label>
+                                                <div class="col-sm-6">
+                                                    <select class="form-control"  id="example-email-input" >
+                                                        <option> -- Select Batch -- </option>
+                                                        <option value="2014">2014</option>
+                                                        <option value="2015">2015</option>
+                                                        <option value="2016">2016</option>
+                                                        <option value="2017">2017</option>
+                                                        <option value="2018">2018</option>
+                                                        <option value="2019">2019</option>
+                                                        <option value="2020">2020</option>
+                                                        <option value="2021">2021</option>
                                                     </select>
-                                                </div>
+                                                </div> 
                                             </div>
+
                                             <div class="form-group row">
-                                                <label for="example-url-input" class="col-sm-2 col-form-label">URL</label>
-                                                <div class="col-sm-10"><input class="form-control" type="url"  id="example-url-input" /></div>
-                                            </div>                                          
-                                            <div class="form-group row">
-                                                <label for="example-password-input" class="col-sm-2 col-form-label">Password</label>
-                                                <div class="col-sm-10"><input class="form-control" type="password" value="hunter2" id="example-password-input" /></div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-number-input" class="col-sm-2 col-form-label">Number</label>
-                                                <div class="col-sm-10"><input class="form-control" type="number" value="42" id="example-number-input" /></div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Date and time</label>
-                                                <div class="col-sm-10"><input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input" /></div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-date-input" class="col-sm-2 col-form-label">Date</label>
-                                                <div class="col-sm-10"><input class="form-control" type="date" value="2011-08-19" id="example-date-input" /></div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-month-input" class="col-sm-2 col-form-label">Month</label>
-                                                <div class="col-sm-10"><input class="form-control" type="month" value="2011-08" id="example-month-input" /></div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-week-input" class="col-sm-2 col-form-label">Week</label>
-                                                <div class="col-sm-10"><input class="form-control" type="week" value="2011-W33" id="example-week-input" /></div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-time-input" class="col-sm-2 col-form-label">Time</label>
-                                                <div class="col-sm-10"><input class="form-control" type="time" value="13:45:00" id="example-time-input" /></div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-color-input" class="col-sm-2 col-form-label">Color</label>
-                                                <div class="col-sm-10"><input class="form-control" type="color" value="#67a8e4" id="example-color-input" /></div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Select</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control">
-                                                        <option>Select</option>
-                                                        <option>Large select</option>
-                                                        <option>Small select</option>
+                                                <label for="example-email-input" class="col-sm-2 col-form-label">District</label>
+                                                <div class="col-sm-6">
+                                                    <select class="form-control"  id="example-email-input" >
+                                                        <option> -- Select District -- </option>
+                                                        <?php
+                                                        $DISTRICT_OBJ = new District();
+                                                        $DISTRICT = $DISTRICT_OBJ->all();
+                                                        foreach ($DISTRICT as $district) {
+                                                            ?>
+                                                            <option value="<?php echo $district['name'] ?>"><?php echo $district['name'] ?></option>
+                                                            <?php
+                                                        }
+                                                        ?>
                                                     </select>
-                                                </div>
+                                                </div> 
                                             </div>
+
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Custom Select</label>
-                                                <div class="col-sm-10">
-                                                    <select class="custom-select">
-                                                        <option selected="selected">Open this select menu</option>
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
+                                                <label for="example-email-input" class="col-sm-2 col-form-label">Course</label>
+                                                <div class="col-sm-6">
+                                                    <select class="form-control"  id="example-email-input" >
+                                                        <option> -- Select Course -- </option>
+                                                        <option value="2014">ICT Baddegama</option>
                                                     </select>
-                                                </div>
+                                                </div> 
                                             </div>
-                                            <div class="form-group row">
-                                                <label for="example-text-input-lg" class="col-sm-2 col-form-label">Large</label>
-                                                <div class="col-sm-10"><input class="form-control form-control-lg" type="text" placeholder=".form-control-lg" id="example-text-input-lg" /></div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-text-input-sm" class="col-sm-2 col-form-label">Small</label>
-                                                <div class="col-sm-10"><input class="form-control form-control-sm" type="text" placeholder=".form-control-sm" id="example-text-input-sm" /></div>
-                                            </div>
-                                            <div class="form-group row has-success">
-                                                <label for="inputHorizontalSuccess" class="col-sm-2 col-form-label">Email</label>
-                                                <div class="col-sm-10">
-                                                    <input type="email" class="form-control form-control-success" id="inputHorizontalSuccess" placeholder="name@example.com" />
-                                                    <div class="form-control-feedback">Success! You've done it.</div>
-                                                    <small class="form-text text-muted">Example help text that remains unchanged.</small>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row has-warning">
-                                                <label for="inputHorizontalWarning" class="col-sm-2 col-form-label">Email</label>
-                                                <div class="col-sm-10">
-                                                    <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com" />
-                                                    <div class="form-control-feedback">Shucks, check the formatting of that and try again.</div>
-                                                    <small class="form-text text-muted">Example help text that remains unchanged.</small>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row has-danger">
-                                                <label for="inputHorizontalDnger" class="col-sm-2 col-form-label">Email</label>
-                                                <div class="col-sm-10">
-                                                    <input type="email" class="form-control form-control-danger" id="inputHorizontalDnger" placeholder="name@example.com" />
-                                                    <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
-                                                    <small class="form-text text-muted">Example help text that remains unchanged.</small>
-                                                </div>
-                                            </div>
+                                            <div class="text-right m-t-15"><a href="add-student-result.php" class="btn btn-primary waves-effect waves-light">Add Student</a></div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- end col -->
                             </div>
                             <!-- end row -->
-
+                            <!--                            <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="card m-b-30">
+                                                                    <div class="card-body">
+                                                                        <h4 class="mt-0 header-title">Semester 1</h4>
+                                                                        <hr>
+                                                                        <p class="text-muted m-b-30 font-14">
+                                                                            Here are examples of <code class="highlighter-rouge">.form-control</code> applied to each textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code>
+                                                                            <code class="highlighter-rouge">type</code>.
+                                                                        </p>
+                            
+                                                                        <table class="table">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>#</th>
+                                                                                    <th>Module Name</th>
+                                                                                    <th>Result</th>
+                                                                                    <th>Year</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                            
+                                                                                <tr>
+                                                                                    <th scope="row">1</th>
+                                                                                    <td>        
+                                                                                        Module Name
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <select class="form-control"  id="example-email-input" >
+                                                                                            <option> -- Select Result -- </option>
+                                                                                            <option value="nc">NC(Not Compitant)</option>
+                                                                                            <option value="c">C(Compitant)</option>
+                                                                                            <option value="ab">Ab(Absent)</option>
+                                                                                        </select>
+                                                                                    </td>
+                                                                                    <td>   <select class="form-control"  id="example-email-input" >
+                                                                                            <option> -- Select Batch -- </option>
+                                                                                            <option value="2011">2011</option>
+                                                                                            <option value="2012">2012</option>
+                                                                                            <option value="2013">2013</option>
+                                                                                            <option value="2014">2014</option>
+                                                                                            <option value="2015">2015</option>
+                                                                                            <option value="2016">2016</option>
+                                                                                            <option value="2017">2017</option>
+                                                                                            <option value="2018">2018</option>
+                                                                                            <option value="2019">2019</option>
+                                                                                            <option value="2020">2020</option>
+                                                                                            <option value="2021">2021</option>
+                                                                                            <option value="2022">2022</option>
+                                                                                            <option value="2023">2023</option>
+                                                                                            <option value="2024">2024</option>
+                                                                                            <option value="2025">2025</option>
+                                                                                        </select></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">2</th>
+                                                                                    <td>        
+                                                                                        Module Name
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <select class="form-control"  id="example-email-input" >
+                                                                                            <option> -- Select Result -- </option>
+                                                                                            <option value="nc">NC(Not Compitant)</option>
+                                                                                            <option value="c">C(Compitant)</option>
+                                                                                            <option value="ab">Ab(Absent)</option>
+                                                                                        </select>
+                                                                                    </td>
+                                                                                    <td>   <select class="form-control"  id="example-email-input" >
+                                                                                            <option> -- Select Batch -- </option>
+                                                                                            <option value="2011">2011</option>
+                                                                                            <option value="2012">2012</option>
+                                                                                            <option value="2013">2013</option>
+                                                                                            <option value="2014">2014</option>
+                                                                                            <option value="2015">2015</option>
+                                                                                            <option value="2016">2016</option>
+                                                                                            <option value="2017">2017</option>
+                                                                                            <option value="2018">2018</option>
+                                                                                            <option value="2019">2019</option>
+                                                                                            <option value="2020">2020</option>
+                                                                                            <option value="2021">2021</option>
+                                                                                            <option value="2022">2022</option>
+                                                                                            <option value="2023">2023</option>
+                                                                                            <option value="2024">2024</option>
+                                                                                            <option value="2025">2025</option>
+                                                                                        </select></td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                            
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                             end col 
+                                                        </div>
+                            
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="card m-b-30">
+                                                                    <div class="card-body">
+                                                                        <h4 class="mt-0 header-title">Semester 2</h4>
+                                                                        <hr>
+                                                                        <p class="text-muted m-b-30 font-14">
+                                                                            Here are examples of <code class="highlighter-rouge">.form-control</code> applied to each textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code>
+                                                                            <code class="highlighter-rouge">type</code>.
+                                                                        </p>
+                            
+                                                                    <table class="table">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>#</th>
+                                                                                    <th>Module Name</th>
+                                                                                    <th>Result</th>
+                                                                                    <th>Year</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                            
+                                                                                <tr>
+                                                                                    <th scope="row">1</th>
+                                                                                    <td>        
+                                                                                        Module Name
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <select class="form-control"  id="example-email-input" >
+                                                                                            <option> -- Select Result -- </option>
+                                                                                            <option value="nc">NC(Not Compitant)</option>
+                                                                                            <option value="c">C(Compitant)</option>
+                                                                                            <option value="ab">Ab(Absent)</option>
+                                                                                        </select>
+                                                                                    </td>
+                                                                                    <td>   <select class="form-control"  id="example-email-input" >
+                                                                                            <option> -- Select Batch -- </option>
+                                                                                            <option value="2011">2011</option>
+                                                                                            <option value="2012">2012</option>
+                                                                                            <option value="2013">2013</option>
+                                                                                            <option value="2014">2014</option>
+                                                                                            <option value="2015">2015</option>
+                                                                                            <option value="2016">2016</option>
+                                                                                            <option value="2017">2017</option>
+                                                                                            <option value="2018">2018</option>
+                                                                                            <option value="2019">2019</option>
+                                                                                            <option value="2020">2020</option>
+                                                                                            <option value="2021">2021</option>
+                                                                                            <option value="2022">2022</option>
+                                                                                            <option value="2023">2023</option>
+                                                                                            <option value="2024">2024</option>
+                                                                                            <option value="2025">2025</option>
+                                                                                        </select></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">2</th>
+                                                                                    <td>        
+                                                                                        Module Name
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <select class="form-control"  id="example-email-input" >
+                                                                                            <option> -- Select Result -- </option>
+                                                                                            <option value="nc">NC(Not Compitant)</option>
+                                                                                            <option value="c">C(Compitant)</option>
+                                                                                            <option value="ab">Ab(Absent)</option>
+                                                                                        </select>
+                                                                                    </td>
+                                                                                    <td>   <select class="form-control"  id="example-email-input" >
+                                                                                            <option> -- Select Batch -- </option>
+                                                                                            <option value="2011">2011</option>
+                                                                                            <option value="2012">2012</option>
+                                                                                            <option value="2013">2013</option>
+                                                                                            <option value="2014">2014</option>
+                                                                                            <option value="2015">2015</option>
+                                                                                            <option value="2016">2016</option>
+                                                                                            <option value="2017">2017</option>
+                                                                                            <option value="2018">2018</option>
+                                                                                            <option value="2019">2019</option>
+                                                                                            <option value="2020">2020</option>
+                                                                                            <option value="2021">2021</option>
+                                                                                            <option value="2022">2022</option>
+                                                                                            <option value="2023">2023</option>
+                                                                                            <option value="2024">2024</option>
+                                                                                            <option value="2025">2025</option>
+                                                                                        </select></td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                            
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                             end col 
+                                                        </div>
+                            
+                            
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="card m-b-30">
+                                                                    <div class="card-body">
+                                                                        <h4 class="mt-0 header-title">Viva</h4>
+                                                                        <hr>
+                                                                        <p class="text-muted m-b-30 font-14">
+                                                                            Here are examples of <code class="highlighter-rouge">.form-control</code> applied to each textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code>
+                                                                            <code class="highlighter-rouge">type</code>.
+                                                                        </p>
+                            
+                                                                        <table class="table">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>#</th>
+                                                                                    <th>Result</th>
+                                                                                    <th>Year</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                            
+                                                                                <tr>
+                                                                                    <th scope="row">1</th>
+                                                                                     <td>
+                                                                                        <select class="form-control"  id="example-email-input" >
+                                                                                            <option> -- Select Result -- </option>
+                                                                                            <option value="nc">NC(Not Compitant)</option>
+                                                                                            <option value="c">C(Compitant)</option>
+                                                                                            <option value="ab">Ab(Absent)</option>
+                                                                                        </select>
+                                                                                    </td>
+                                                                                    <td>   <select class="form-control"  id="example-email-input" >
+                                                                                            <option> -- Select Batch -- </option>
+                                                                                            <option value="2011">2011</option>
+                                                                                            <option value="2012">2012</option>
+                                                                                            <option value="2013">2013</option>
+                                                                                            <option value="2014">2014</option>
+                                                                                            <option value="2015">2015</option>
+                                                                                            <option value="2016">2016</option>
+                                                                                            <option value="2017">2017</option>
+                                                                                            <option value="2018">2018</option>
+                                                                                            <option value="2019">2019</option>
+                                                                                            <option value="2020">2020</option>
+                                                                                            <option value="2021">2021</option>
+                                                                                            <option value="2022">2022</option>
+                                                                                            <option value="2023">2023</option>
+                                                                                            <option value="2024">2024</option>
+                                                                                            <option value="2025">2025</option>
+                                                                                        </select></td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                            
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                             end col 
+                                                        </div>-->
                         </div>
                         <!-- container -->
                     </div>
                     <!-- Page content Wrapper -->
                 </div>
                 <!-- content -->
-                <footer class="footer">© 2019 Annex by Mannatthemes.</footer>
+                <footer class="footer">© 2021 VTA.</footer>
             </div>
             <!-- End Right content here -->
         </div>
